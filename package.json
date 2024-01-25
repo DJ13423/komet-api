@@ -2,9 +2,10 @@
   "name": "komet-api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "compiled/src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "start": "tsc | node ."
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,13 @@
   },
   "devDependencies": {
     "@types/express": "^4.17.15",
-    "@types/express-ws": "^3.0.1"
+    "@types/express-ws": "^3.0.1",
+    "@types/jest": "^29.5.11",
+    "@types/supertest": "^6.0.2",
+    "chai": "^5.0.0",
+    "jest": "^29.7.0",
+    "mocha": "^10.2.0",
+    "supertest": "^6.3.4",
+    "ts-jest": "^29.1.2"
   }
 }

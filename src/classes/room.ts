@@ -1,11 +1,11 @@
 import ws from 'ws'
 
 export default class Room {
-    roomID: string
+    id: string
     websockets: ws[] = []
 
     constructor(roomID: string) {
-        this.roomID = roomID
+        this.id = roomID
     }
 
     addWebsocket(ws: ws): void {
@@ -13,14 +13,12 @@ export default class Room {
     }
 
     removeWebsocket(ws: ws): void {
+        if (ws.readyState === ws.OPEN)
+            ws.close()
         this.websockets = this.websockets.filter(websocket => websocket !== ws)
     }
 
     broadcast(message: string): void {
         this.websockets.forEach(ws => ws.send(message))
-    }
-
-    broadcastJSON(json: any): void {
-        this.broadcast(JSON.stringify(json))
     }
 }
