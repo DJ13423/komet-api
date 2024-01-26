@@ -22,3 +22,23 @@ describe('Testing endpoint /api/v1/broadcast/', () => {
         })
     })
 })
+
+
+// describe('Testing endpoint /api/v1/broadcast/:roomID', () => {
+//     describe('WSS /api/v1/broadcast/:roomID', () => {
+//             const roomID = generateRandomString(10)
+//         test('Can send WebSocket message', async () => {
+//             const ws1 = new WebSocket(`ws://localhost:80/api/v1/broadcast/${roomID}`)
+//             const ws2 = new WebSocket(`ws://localhost:80/api/v1/broadcast/${roomID}`)
+//             const ws3 = new WebSocket(`ws://localhost:80/api/v1/broadcast/${roomID}`)
+//             const ws4 = new WebSocket(`ws://localhost:80/api/v1/broadcast/${roomID}`)
+
+//             const message1 = generateRandomString(10)
+//             const message2 = generateRandomString(10)
+//             const message3 = generateRandomString(10)
+//             const message4 = generateRandomString(10)
+
+
+//         })
+//     })
+// })

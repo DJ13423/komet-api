@@ -11,7 +11,7 @@ router.ws('/:roomID', (ws, req) => {
     room.addWebsocket(ws)
 
     ws.on('message', (message: string) => {
-        room.broadcast(message)
+        room.broadcast(ws.url)
     })
 
     ws.on('close', () => {
@@ -20,20 +20,10 @@ router.ws('/:roomID', (ws, req) => {
 })
 
 
-router.get('/:roomID', (req, res) => {
+router.get('/:roomID/count', (req, res) => {
     const { roomID } = req.params
     const room = RoomManager.getRoom(roomID)
-    if (room === undefined) {
-        res.send('Room not found')
-        return
-    }
-
-    const dataToSend = {
-        roomID: room.id,
-        websockets: room.websockets.length,
-        websocketsList: room.websockets.map(ws => ws.url)
-    }
-    res.send(JSON.stringify(dataToSend))
+    res.send(room.websockets.length)
 })
 
 
