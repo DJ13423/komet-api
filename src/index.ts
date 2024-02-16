@@ -53,8 +53,8 @@ app.get('/api/ping', (req, res) => {
 })
 
 
-const server = app.listen(process.argv[2], async () => {
-    console.log(`Example app listening on port 80`)
+const server = app.listen(process.argv[2] || 80, async () => {
+    console.log(`Komet API running on port ${process.argv[2] || 80}`)
 })
 
 export default server
