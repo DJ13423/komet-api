@@ -4,6 +4,7 @@ import expressWs from "express-ws"
 import ws from "ws"
 import { Level } from "level"
 
+import { version as packageVersion } from "../package.json"
 
 type WebsocketRequestHandler = { ws: (path: string, handler: (ws: ws, req: express.Request, next?: express.NextFunction) => void) => void }
 
@@ -49,12 +50,13 @@ app.use('/api', require('./api').default)
 
 
 app.get('/api/ping', (req, res) => {
-    res.send('Pong!') // TODO: respond with version
+    
+    res.send(`Pong! Komet running version ${packageVersion}`) // TODO: respond with version
 })
 
 
-const server = app.listen(process.argv[2] || 80, async () => {
-    console.log(`Komet API running on port ${process.argv[2] || 80}`)
+const server = app.listen(process.argv[2] || 8080, async () => {
+    console.log(`Komet API v${packageVersion} running on port ${process.argv[2] || 8080}`)
 })
 
 export default server
