@@ -49,11 +49,11 @@ app.use('/api', require('./api').default)
 
 
 app.get('/api/ping', (req, res) => {
-    res.send('Pong!')
+    res.send('Pong!') // TODO: respond with version
 })
 
 
-const server = app.listen(80, async () => {
+const server = app.listen(process.argv[2], async () => {
     console.log(`Example app listening on port 80`)
 })
 
