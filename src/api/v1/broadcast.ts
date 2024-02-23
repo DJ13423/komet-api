@@ -11,7 +11,7 @@ router.ws('/:roomID', (ws, req) => {
     room.addWebsocket(ws)
 
     ws.on('message', (message: string) => {
-        room.broadcast(ws.url)
+        room.broadcast(message)
     })
 
     ws.on('close', () => {
