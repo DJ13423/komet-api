@@ -12,6 +12,7 @@ router.ws('/:roomID', (ws, req) => {
 
     ws.on('message', (message: string) => {
         room.broadcast(message)
+        console.log(`Broadcasted message: ${message}`)
     })
 
     ws.on('close', () => {

@@ -15,11 +15,15 @@ router.get('/:databaseID/:key?', async (req, res) => {
 
         if (key == undefined) {
             // send all keys
-            res.status(200).set('Content-Type', 'application/json').send(Object.keys(databaseData.data))
+            res.status(200)
+            res.set('Content-Type', 'application/json')
+            res.send(Object.keys(databaseData.data))
         } else {
             // send specific key
-            if (databaseData.data[key])
-                res.status(200).send(databaseData.data[key])
+            if (databaseData.data[key]) {
+                res.status(200)
+                res.send(databaseData.data[key])
+            }
             else
                 res.sendStatus(404)
         }

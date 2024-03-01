@@ -12,7 +12,9 @@ declare global {
     namespace variables {
         let app: Express & WebsocketRequestHandler
         let database: Level
-        let noDeleteDatabase: Level
+        let limitedDatabase: Level
+        let arrayDatabase: Level
+        let limitedArrayDatabase: Level
     }
 }
 
@@ -20,7 +22,9 @@ global = {
     ...global, variables: {
         app: express() as Express & WebsocketRequestHandler,
         database: new Level('db/database'),
-        noDeleteDatabase: new Level('db/noDeleteDatabase'),
+        limitedDatabase: new Level('db/limited-database'),
+        arrayDatabase: new Level('db/array-database'),
+        limitedArrayDatabase: new Level('db/limited-array-database')
     }
 }
 
@@ -46,12 +50,17 @@ app.use(json());
 app.use(bodyParser.json()) // for parsing application/json
 app.use(bodyParser.text({ type: 'text/plain' })) // parse text/plain
 
+app.use(function(req, res, next) {
+    res.set('Access-Control-Allow-Origin', '*')
+    res.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH')
+    next()
+})
+
 app.use('/api', require('./api').default)
 
 
 app.get('/api/ping', (req, res) => {
-    
-    res.send(`Pong! Komet running version ${packageVersion}`) // TODO: respond with version
+    res.send(`Pong! Komet running version ${packageVersion}`)
 })
 
 
