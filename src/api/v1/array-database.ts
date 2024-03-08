@@ -17,7 +17,7 @@ router.get('/:databaseID/:index?', async (req, res) => {
             // send all indexs
             res.status(200)
             res.set('Content-Type', 'application/json')
-            res.send(Object.keys(databaseData.data))
+            res.send(databaseData.data)
         } else {
             // send specific index
             if (databaseData.data[index]) {
