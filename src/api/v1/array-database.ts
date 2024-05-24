@@ -62,7 +62,7 @@ router.delete('/:databaseID/:index', async (req, res) => {
         }
 
         if (databaseData.data[index]) {
-            delete databaseData.data[index]
+            databaseData.data.splice(index, 1)
         } else {
             res.sendStatus(404)
             return
