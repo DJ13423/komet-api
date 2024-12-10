@@ -24,7 +24,7 @@ router.ws('/:roomID', (ws, req) => {
 router.get('/:roomID/count', (req, res) => {
     const { roomID } = req.params
     const room = RoomManager.getRoom(roomID)
-    res.send(room.websockets.length)
+    res.send(room.websockets.length.toString())
 })
 
 
