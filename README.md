@@ -47,9 +47,9 @@ node compiled/src/index.js 3000
 The API is available under the `/api` path with the following routes:
 
 - `/api/v1/database` or `/api/v1/db`: Standard key-value database
-- `/api/v1/limited-database` or `/api/v1/ldb`: Key-value database with expiration support
+- `/api/v1/limited-database` or `/api/v1/ldb`: Key-value database without delete support
 - `/api/v1/array-database` or `/api/v1/adb`: Array-based storage
-- `/api/v1/limited-array-database` or `/api/v1/ladb`: Array storage with expiration
+- `/api/v1/limited-array-database` or `/api/v1/ladb`: Array storage without delete support
 - `/api/v1/broadcast`: WebSocket broadcasting functionality
 
 ### Testing
