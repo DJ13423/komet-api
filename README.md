@@ -9,9 +9,9 @@ Komet API provides simple key-value and array storage with REST API access. It's
 ## Features
 
 - **Database Operations**: Store and retrieve key-value data
-- **Limited Database**: Key-value store with optional expiration
+- **Limited Database**: Key-value database without delete support
 - **Array Database**: Array-based data storage
-- **Limited Array Database**: Array storage with expiration support
+- **Limited Array Database**: Array storage without delete support
 - **WebSocket Broadcasting**: Real-time communication capabilities
 
 ## Installation
