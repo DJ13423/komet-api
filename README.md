@@ -6,6 +6,12 @@ A lightweight database and WebSocket API server built with Node.js, Express, and
 
 Komet API provides simple key-value and array storage with REST API access. It's designed to be straightforward to use and deploy, offering both persistent storage and real-time communication capabilities.
 
+### Background
+
+This project was created for my school to support their Computer Science classes. It gives students an opportunity to learn how to use APIs and build networked applications, such as multiplayer games or social media apps.
+
+The name **Komet API** comes from an Ubuntu Linux server I set up for the school, named **"Komet"**.
+
 ## Features
 
 - **Database Operations**: Store and retrieve key-value data
